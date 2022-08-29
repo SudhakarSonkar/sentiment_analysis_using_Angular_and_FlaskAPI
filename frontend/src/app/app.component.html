@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<body class="w3-content" style="max-width:1200px">
+  
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top">
+    <div class="w3-container w3-display-container w3-padding-16">
+      <h3 class="w3-wide"><b>HOME</b></h3>
+    </div>
+    
+    <div class="w3-padding-64 w3-large w3-text-grey">
+      <a href="#" class="w3-bar-item w3-button">IMDb</a>
+      <a href="#" class="w3-bar-item w3-button">Twitter</a>
+      <a href="#" class="w3-bar-item w3-button">Glassdoor</a>
+    </div>  
+  </nav>
+
+  <!-- Text header -->
+  <div class="w3-display-container w3-container">
+    
+    <form enctype="multipart/form-data">
+      <textarea rows="6" name="text" [(ngModel)]="text" cols="70" placeholder="Enter your text here..."></textarea>
+      <br />
+      <button type="button" class="btn btn-danger" (click)="getResult()">
+        Submit
+      </button>
+    </form>
+
+    <br />
+    <!-- {{output && output|json}} -->
+    <ng-container *ngIf="visible">
+      <div class="bg-white shadow-sm p-3">
+      <table>
+        
+        <tr>
+          <th>Overall Sentiment Score: </th>
+          <td>{{output.result}}</td>
+        </tr>
+
+        <tr>
+          <th>Number of Negative Reviews: </th>
+          <td>{{output.negative_review}}</td>
+        </tr>
+        
+        <tr>
+          <th>Number of Neutral Reviews: </th>
+          <td>{{output.neutral_review}}</td>
+        </tr>
+        
+        <tr>
+          <th>Number of Positive Reviews: </th>
+          <td>{{output.positive_review}}</td>
+        </tr>
+
+      </table>
+
+      </div>
+    </ng-container >
+
+  </div >
+</body >
